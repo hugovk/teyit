@@ -179,6 +179,10 @@ class TeyitTestCase(unittest.TestCase):
             "self.assertEqual(x, y, z, msg=msg)",
         )
         self.assertRewrites(
+            "self.failUnlessRaises(x, msg=msg)",
+            "self.assertRaises(x, msg=msg)",
+        )
+        self.assertRewrites(
             "self.assertNotEquals(x, y, z, msg=msg)",
             "self.assertNotEqual(x, y, z, msg=msg)",
         )
@@ -197,6 +201,18 @@ class TeyitTestCase(unittest.TestCase):
         self.assertRewrites(
             "self.assertNotAlmostEquals(x, y, z, msg=msg)",
             "self.assertNotAlmostEqual(x, y, z, msg=msg)",
+        )
+        self.assertRewrites(
+            "self.assertRegexpMatches(x, y, msg=msg)",
+            "self.assertRegex(x, y, msg=msg)",
+        )
+        self.assertRewrites(
+            "self.assertNotRegexpMatches(x, y, msg=msg)",
+            "self.assertNotRegex(x, y, msg=msg)",
+        )
+        self.assertRewrites(
+            "self.assertRaisesRegexp(x, y, msg=msg)",
+            "self.assertRaisesRegex(x, y, msg=msg)",
         )
 
     def test_assert_rewriter_cosmetic(self):

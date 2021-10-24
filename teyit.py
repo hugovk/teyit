@@ -34,11 +34,15 @@ DEPRECATED_ALIASES = {
     "assertEquals": "assertEqual",
     "failIfEqual": "assertNotEqual",
     "failUnlessEqual": "assertEqual",
+    "failUnlessRaises": "assertRaises",
     "assertNotEquals": "assertNotEqual",
     "assertAlmostEquals": "assertAlmostEqual",
     "failIfAlmostEqual": "assertNotAlmostEqual",
     "failUnlessAlmostEqual": "assertAlmostEqual",
     "assertNotAlmostEquals": "assertNotAlmostEqual",
+    "assertRegexpMatches": "assertRegex",
+    "assertNotRegexpMatches": "assertNotRegex",
+    "assertRaisesRegexp": "assertRaisesRegex",
 }
 
 
