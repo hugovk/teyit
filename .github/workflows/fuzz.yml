@@ -1,22 +1,20 @@
 name: Fuzz CPython
 
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
+on: [push, pull_request, workflow_dispatch]
 
 concurrency:
   group: ${{ github.head_ref || github.run_id }}
   cancel-in-progress: true
+
+env:
+  FORCE_COLOR: 1
 
 jobs:
   fuzz-cpython:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           repository: python/cpython
 
@@ -29,7 +27,7 @@ jobs:
       - name: Build CPython
         run: make -j8
 
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           path: teyit
 
